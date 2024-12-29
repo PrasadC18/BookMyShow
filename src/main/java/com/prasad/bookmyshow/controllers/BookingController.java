@@ -17,8 +17,8 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    public CreateBookingResponseDto createBooking(CreateBookingRequestDto requestDto) {
-        CreateBookingResponseDto responseDto = new CreateBookingResponseDto();
+    public CreateBookingResponseDTO createBooking(CreateBookingRequestDTO requestDto) {
+        CreateBookingResponseDTO responseDto = new CreateBookingResponseDTO();
 
         try {
             Booking booking = bookingService.createBooking(requestDto.getUserId(),

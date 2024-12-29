@@ -23,7 +23,7 @@ public class PriceCalculator {
 
         for (ShowSeat showSeat : showSeats) { // 10
             for (ShowSeatType showSeatType : showSeatTypes) { // 3
-                if (showSeat.getSeat().getSeatType().equals(showSeatType.getSeatType())) {
+                if (showSeat.getSeat().getSeatType().equals(showSeatType.getSeatype())) {
                     amount += showSeatType.getPrice();
                     break;
                 }

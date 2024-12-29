@@ -3,7 +3,7 @@ package com.prasad.bookmyshow.services;
 import com.prasad.bookmyshow.exceptions.UserNotFoundException;
 import com.prasad.bookmyshow.models.User;
 import com.prasad.bookmyshow.repositories.UserRepository;
-import com.prasad.bookmyshow.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,14 +17,14 @@ public class UserService {
     }
 
     public User signup(String name,
-                       String email,
-                       String password) {
+            String email,
+            String password) {
 
         /*
-        1. Check if the user already exists with the given email id.
-        2. If yes, ask the user to login.
-        2. If not, create a new user object with the given details.
-        3. save it to DB.
+         * 1. Check if the user already exists with the given email id.
+         * 2. If yes, ask the user to login.
+         * 2. If not, create a new user object with the given details.
+         * 3. save it to DB.
          */
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
@@ -47,10 +47,11 @@ public class UserService {
         User user = optionalUser.get();
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        //Compare the password
-//        if (bCryptPasswordEncoder.encode(password).equals(user.getPassword())) {
-//
-//        }
+        
+        // Compare the password
+        //if (bCryptPasswordEncoder.encode(password).equals(user.getPassword())) {
+
+        //}
 
         if (bCryptPasswordEncoder.matches(password, user.getPassword())) {
             //Login successfull.

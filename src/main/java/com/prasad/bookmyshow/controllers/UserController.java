@@ -14,20 +14,20 @@ public class UserController {
         this.userService = userService;
     }
 
-    public SignupResponseDto signUp(SignupRequestDto requestDto) {
+    public SignupResponseDTO signUp(SignupRequestDTO requestDto) {
         //TODO : Handle Exception (if any)
         User user = userService.signup(requestDto.getName(),
                 requestDto.getEmail(),
                 requestDto.getPassword());
 
-        SignupResponseDto responseDto = new SignupResponseDto();
+        SignupResponseDTO responseDto = new SignupResponseDTO();
         responseDto.setResponseStatus(ResponseStatus.SUCCESS);
         responseDto.setUserId(user.getId());
         return responseDto;
     }
 
-    public LoginResponseDto login(LoginRequestDto requestDto) {
-        LoginResponseDto responseDto = new LoginResponseDto();
+    public LoginResponseDTO login(LoginRequestDTO requestDto) {
+        LoginResponseDTO responseDto = new LoginResponseDTO();
         try {
             User user = userService.login(requestDto.getEmail(),
                     requestDto.getPassword());
