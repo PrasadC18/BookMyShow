@@ -9,14 +9,13 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
-// below anotations will add getters and setters automatically
 @Getter
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class BaseModel {
-    @Id //PK attr for all the child classes of BaseModel.
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto Increment
+    @Id // PK attr for all the child classes of BaseModel.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO INCREMENT.
     private Long id;
 
     @CreatedDate
@@ -28,10 +27,6 @@ public class BaseModel {
     private Date lastModifiedAt;
 }
 
-/*
-    user of @MappedSuperclass
 
-    We don't need the table for BaseModel class,
-    but we want all the attributes of BaseModel class to be
-    present in the model tables.
-*/
+//We don't need the table for BaseModel class.
+//But we want all the attributes of BaseModel class to be present in the model tablels

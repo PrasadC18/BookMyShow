@@ -6,15 +6,16 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
 @Entity
-public class Movie extends BaseModel{
-    private String movieName;
-    private Date ReleaseDate;
+public class Movie extends BaseModel {
+    private String name;
+    private Date releaseDate;
 
     @Enumerated(EnumType.ORDINAL)
     @ElementCollection
